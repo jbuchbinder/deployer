@@ -1,0 +1,189 @@
+/*
+ * $Id: deployer.css 934 2008-08-21 16:43:01Z jbuchbinder $
+ */
+
+html, body {
+	margin: 0;
+	font-family: sans-serif
+	size: 8pt;
+	}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	}
+
+h1 {
+	width: 90%;
+        font-size: 24px;
+	line-height: 77px;
+        font-weight: bold;
+	margin: 0px;
+	background-color: #eeeeee;
+	padding-left: 125px;
+	background-image: url(../img/logo.png);
+	background-repeat: no-repeat;
+	display: block;
+	border: 1px solid #000000;
+	font-family: sans-serif;
+        }
+
+h2 {
+        font-size: 18px;
+        line-height: 40px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
+
+h3 {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
+
+h4 {
+        font-size: 14px;
+        line-height: 26px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
+
+h5 {
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
+
+h6 {
+        font-size: 10px;
+        line-height: 18px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
+        }
+
+pre {
+        font-size: 12px;
+        line-height: 22px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+	border: 1px dashed #999999;
+	background-color: #eeeeff;
+	
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        }
+
+.deployment_success {
+	position: absolute;
+	width: 100%;
+	left: 5px;
+	top: 0px;
+	height: 70px;
+	vertical-align: top;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #003263;
+	color: #ffffff;
+	}
+
+.deployment_failure {
+	position: absolute;
+	width: 100%;
+	left: 5px;
+	top: 0px;
+	height: 70px;
+	vertical-align: top;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #ff0000;
+	color: #ffffff;
+	}
+
+ul li {
+		
+	}
+
+ul.buttons {
+	list-style-type: none;
+	margin-top: 0;
+	margin-bottom: 2ex;
+	padding: 0;
+	}
+
+ul.buttons li {
+	display: inline;
+	margin-top: 0px;
+	margin-left: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	background: #dddddd;
+	size: 9pt;
+	font-family: sans-serif;
+	}
+
+ul.buttons li a, ul.buttons li a:hover, ul.buttons li a:visited {
+	font-weight: normal;
+	text-decoration: none;
+	color: #000000;
+	size: 9pt;
+	font-family: sans-serif;
+	}
+
+ul.buttons li:hover {
+	background-color: #eeeeee;
+	}
+
+.row {
+	background-color: #ffffff;
+	}
+
+.row_alternate {
+	background-color: #eeeeff;
+	}
+
+.tableText {
+	font-size: 8pt;
+	font-family: sans-serif;
+	}
+
+td.row, td.row_alternate {
+	padding-left: 10px;
+	padding-right: 10px;
+	}
+
+#status {
+	text-align: center;
+	margin: 1em;
+	font-weight: bold;
+	font-family: sans-serif;
+	size: 12pt;
+	}
+
+.logtable {
+	font-size: 8pt;	
+}
+
+.log_tableheader {
+	background-color: yellow;	
+}
+
+
+#log {
+	text-align: center;
+	margin: 1em;
+	font-weight: bold;
+	font-family: sans-serif;
+	size: 12pt;
+	}

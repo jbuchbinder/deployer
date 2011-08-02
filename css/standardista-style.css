@@ -1,0 +1,34 @@
+table {
+        width: 80%;
+        margin: 1em auto;
+        border-collapse: collapse;
+}
+
+thead th,
+tfoot th {
+        padding: 0.5em;
+        text-align: left;
+        border: 1px solid black;
+        background-color: #AAF;
+}
+
+tfoot td {
+        border-top: 1px solid black;
+}
+
+tbody td {
+        padding: 0.5em;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+}
+
+tbody tr.odd {
+        background-color: #DDF;
+}
+
+td.numeric,
+th.numeric {
+        text-align: right;
+}
+
+

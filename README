@@ -1,0 +1,27 @@
+DEPLOYER
+========
+
+Our "deployer", meant to deploy containerized J2EE applications to Tomcat,
+JBoss, Jetty, etc containers.
+
+You're going to have to write some of your own XSL overrides for server.xml
+and customize configuration files, variables, manifests, etc, for this to
+work in your environment. Guaranteed. It worked well for us, enjoy...
+
+Authors
+* Jeff Buchbinder
+* Vladimir Vuksan
+
+Dependencies
+* PHP with XML support
+* rsync
+
+Things which have to be customized for this to work...
+* /dist : This should hold a heirarchical tree with your software releases in
+  it, in the form /dist/${PRODUCT}/${PRODUCT}-${VERSION}.tar.gz
+* config.php : Set your local values
+* repository_sync.php : Should be set up to sync from your software repository,
+  which in the case of the example also has a /dist directory structure.
+* keys/id_rsa : Needs to be populated with a ssh key which can be used to gain
+  root access to the application servers.
+
