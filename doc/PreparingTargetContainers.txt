@@ -1,0 +1,106 @@
+Preparing Tomcat Containers
+===========================
+
+Upstream Versions
+-----------------
+
+New versions can be downloaded from here: http://apache.mirrors.pair.com/tomcat/
+The proper download is bin/apache-tomcat-x.x.x.tar.gz
+
+Preparation
+-----------
+
+Tomcat 6.x+
+-----------
+
+$ wget http://apache.mirrors.pair.com/tomcat/tomcat-6/v6.0.30/bin/apache-tomcat-6.0.30.tar.gz
+--2011-01-21 16:42:23--  http://apache.mirrors.pair.com/tomcat/tomcat-6/v6.0.30/bin/apache-tomcat-6.0.30.tar.gz
+Resolving apache.mirrors.pair.com... 216.92.2.131
+Connecting to apache.mirrors.pair.com|216.92.2.131|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6494101 (6.2M) [application/x-gzip]
+Saving to: `apache-tomcat-6.0.30.tar.gz'
+
+100%[======================================>] 6,494,101    162K/s   in 38s     
+
+2011-01-21 16:43:02 (168 KB/s) - `apache-tomcat-6.0.30.tar.gz' saved [6494101/6494101]
+
+$ tar zxf apache-tomcat-6.0.30.tar.gz
+$ cd apache-tomcat-6.0.30/
+$ rm webapps/{docs,examples,ROOT} temp/* logs LICENSE NOTICE RELEASE* RUNNING* -Rf
+$ tar czf /dist/apache-tomcat-6.0.30.tar.gz .
+
+Preparing JBoss Containers
+--------------------------
+
+Upstream Versions
+-----------------
+
+New versions can be downloaded from here: http://sourceforge.net/projects/jboss/files/JBoss/
+The proper download is jboss-as-distribution-6.x.x.Final.zip
+
+Preparation
+-----------
+
+JBoss 5.0.0+
+------------
+
+$ wget -c http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip/download -O jboss-5.0.1.GA.zip
+--2011-04-12 10:44:26--  http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip/download
+Resolving sourceforge.net... 216.34.181.60
+Connecting to sourceforge.net|216.34.181.60|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://downloads.sourceforge.net/project/jboss/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip?r=&ts=1302619472&use_mirror=iweb [following]
+--2011-04-12 10:44:32--  http://downloads.sourceforge.net/project/jboss/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip?r=&ts=1302619472&use_mirror=iweb
+Resolving downloads.sourceforge.net... 216.34.181.59
+Connecting to downloads.sourceforge.net|216.34.181.59|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://iweb.dl.sourceforge.net/project/jboss/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip [following]
+--2011-04-12 10:44:33--  http://iweb.dl.sourceforge.net/project/jboss/JBoss/JBoss-5.0.1.GA/jboss-5.0.1.GA.zip
+Resolving iweb.dl.sourceforge.net... 70.38.0.134
+Connecting to iweb.dl.sourceforge.net|70.38.0.134|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 109099657 (104M) [application/zip]
+Saving to: `jboss-5.0.1.GA.zip'
+
+100%[======================================>] 109,099,657 10.9M/s   in 14s     
+
+2011-04-12 10:44:47 (7.33 MB/s) - `jboss-5.0.1.GA.zip' saved [109099657/109099657]
+
+$ unzip -q jboss-5.0.1.GA.zip
+$ cd jboss-5.0.1.GA
+$ rm -Rf copyright.txt JBossORG-EULA.txt readme.html docs/ jar-versions.xml lgpl.html
+$ tar czf /dist/jboss-5.0.1.tar.gz .
+$
+
+JBoss 6.0.0+
+------------
+
+$ wget -c 'http://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download' -O jboss-as-distribution-6.0.0.Final.zip
+--2011-04-12 10:00:25--  http://sourceforge.net/projects/jboss/files/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip/download
+Resolving sourceforge.net... 216.34.181.60
+Connecting to sourceforge.net|216.34.181.60|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://downloads.sourceforge.net/project/jboss/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip?r=&ts=1302616831&use_mirror=surfnet [following]
+--2011-04-12 10:00:31--  http://downloads.sourceforge.net/project/jboss/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip?r=&ts=1302616831&use_mirror=surfnet
+Resolving downloads.sourceforge.net... 216.34.181.59
+Connecting to downloads.sourceforge.net|216.34.181.59|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://surfnet.dl.sourceforge.net/project/jboss/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip [following] 
+--2011-04-12 10:00:33--  http://surfnet.dl.sourceforge.net/project/jboss/JBoss/JBoss-6.0.0.Final/jboss-as-distribution-6.0.0.Final.zip
+Resolving surfnet.dl.sourceforge.net... 130.59.138.21, 2001:620:0:1b::21
+Connecting to surfnet.dl.sourceforge.net|130.59.138.21|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 181267148 (173M) [application/zip]
+Saving to: `jboss-as-distribution-6.0.0.Final.zip'
+
+100%[======================================>] 181,267,148 3.32M/s   in 44s     
+
+2011-04-12 10:01:17 (3.94 MB/s) - `jboss-as-distribution-6.0.0.Final.zip' saved [181267148/181267148]
+
+$ unzip -q jboss-as-distribution-6.0.0.Final.zip
+$ cd jboss-6.0.0.Final
+$ rm -Rf docs jar-versions.xml
+$ tar czf /dist/jboss-6.0.0.tar.gz .
+$
+
