@@ -1,0 +1,128 @@
+DEPLOYER DATABASE LAYOUT
+========================
+
+------------
+config_files
+------------
+
+Defines deployed configuration files relative to the base container
+directory, used for inline configuration display.
+
+* product_id : FK products.id
+* config_file : Relative path to config file
+
+----------------
+config_templates
+----------------
+
+Defines configuration files built from templates (not key/value built
+files).
+
+* id : PK
+* deploy_file_id : FK deploy_files.id
+* name : File name
+* template_path : Path to the template file, relative to the templates
+  subdirectory.
+
+----------
+containers
+----------
+
+Defines J2EE installation "containers", like Tomcat, JBoss, Jetty, etc.
+
+* id : PK
+* name : Short name describing container
+* description : Optional description
+* archive : Original archive name under /dist
+* extract_location : Where should the web applications be installed in this
+  container; usually the webapps directory.
+* server_xml_location : Relative path to server.xml from the base of the
+  container. For tomcat, this is "conf/server.xml".
+
+-----------------
+deploy_file_types
+-----------------
+
+Defines the type of generated files which are deployed by the deployer. This
+should not need to be modified.
+
+* id : PK
+* name : Application key
+* description : Optional description
+
+------------
+deploy_files
+------------
+
+* id : PK
+* name : Name of the file
+* description : Optional description
+* config_template_id : LK config_templates.id
+* deploy_file_type_id : LK deploy_file_types.id
+
+----------------------
+deploy_files_manifests
+----------------------
+
+Defines files which will be deployed for a particular product.
+
+* manifest_id : Unused
+* deploy_file_id : LK deploy_files.id
+* product_id : LK products.id
+
+-------
+domains
+-------
+
+Defines deployment environments.
+
+* id : PK
+* name : Display name
+* description : Optional description
+* identifier : Container prefix ("aa" for shortname "base" would use
+  "aa_base" for the username and directory name)
+* startport : Start of the port range for this environment.
+
+--------
+products
+--------
+
+Defines names of deployable products
+
+* id : PK
+* name : Full display name of product (displayed on dashboard)
+* shortname : "Short name", used in container user and directory names
+* proxyname : Semicolon delimited list of proxied URLs (/app1;/app2)
+* apptype : FK containers.name
+* start_port_offset : Number of ports offset from the base port offset for
+  environment (domains.startport).
+* protocol : AJP, HTTP, NONE, JK
+
+--------
+settings
+--------
+
+Defines setting values added in the deployer. "Edit Config" screen adds,
+edits and removes these entries.
+
+* id : PK
+* name : Configuration variable name
+* value : Configuration value
+* system_id : FK systems.id (optional, otherwise 0)
+* domain_id : FK domains.id
+* product_id : FK products.id
+* setting_version_id : Not used
+* deploy_file_id : FK deploy_files.id
+* created_at : Timestamp
+* updated_at : Timestemp
+
+-------
+systems
+-------
+
+Defines names of deployment servers.
+
+* id : PK
+* name : FQDN for server
+* description : Optional description
+

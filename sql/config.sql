@@ -100,6 +100,28 @@ CREATE TABLE `deploy_files` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Table structure for table `deploy_file_types`
+--
+
+DROP TABLE IF EXISTS `deploy_file_types`;
+CREATE TABLE `deploy_file_types` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) default NULL,
+  `description` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `deploy_file_types`
+--
+
+/*!40000 ALTER TABLE `deploy_file_types` DISABLE KEYS */;
+LOCK TABLES `deploy_file_types` WRITE; 
+INSERT INTO `deploy_file_types` VALUES (3,'applicationarchive',NULL),(2,'appserver',''),(1,'name_value_configuration',NULL),(5,'other',NULL),(4,'shell_script',NULL);
+UNLOCK TABLES; 
+/*!40000 ALTER TABLE `deploy_file_types` ENABLE KEYS */;
+
+--
 -- Table structure for table `deploy_files_manifests`
 --
 
