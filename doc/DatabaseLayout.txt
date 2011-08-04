@@ -1,6 +1,14 @@
 DEPLOYER DATABASE LAYOUT
 ========================
 
+-----------
+action_lock
+-----------
+
+* id : PK
+* action : Unique key describing action, environment, product and server
+* stamp : Unix timestamp
+
 ------------
 config_files
 ------------
@@ -10,6 +18,17 @@ directory, used for inline configuration display.
 
 * product_id : FK products.id
 * config_file : Relative path to config file
+
+----------
+config_log
+----------
+
+* id : PK
+* stamp : Timestamp
+* user : Username for the user who performed the config change
+* domain_id : FK domains.id
+* product_id : FK products.id
+* changehash : JSON array representing changes
 
 ----------------
 config_templates
@@ -23,6 +42,17 @@ files).
 * name : File name
 * template_path : Path to the template file, relative to the templates
   subdirectory.
+
+------------------
+container_override
+------------------
+
+* id : PK
+* product_id : FK products.id
+* minimum_version : Minimum affected version
+* maximum_version : Maximum affected version
+* container_name : FK containers.name
+* limit_domain_id : FK domains.id, 0 if no domain limit
 
 ----------
 containers
@@ -82,6 +112,31 @@ Defines deployment environments.
 * identifier : Container prefix ("aa" for shortname "base" would use
   "aa_base" for the username and directory name)
 * startport : Start of the port range for this environment.
+
+-------------
+installations
+-------------
+
+* id : PK
+* system_id : FK systems.id
+* product_id : FK products.id
+* domain_id : FK domains.id
+* last_version_deployed : Version number
+* ip : IP of server, if manually overridden, otherwise NULL
+* created_at : Timestamp
+* updated_at : Timestamp
+
+---
+log
+---
+
+* id : PK
+* logtime : Timestamp
+* user : Username of user who requested deployment
+* server : FK systems.name
+* domain : FK domains.name
+* product : FK products.name
+* message : Descriptive textual message
 
 --------
 products
