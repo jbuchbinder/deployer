@@ -22,7 +22,7 @@ $VERSION = trim( str_replace( '$', '', $__V[1] ) );
 <?php if (!$_GET['embed']) { ?>
 <h1>Configuration Viewer [version <?php print $VERSION; ?>]</h1>
 <ul class="buttons">
-	<li><a href="repository_sync.php">Update software from shrek</a></li>
+	<li><a href="repository_sync.php">Update software from repository</a></li>
 	<li><a href="edit_config.php">Edit Config</a></li>
 	<li><a href="dashboard.php">Dashboard</a></li>
 </ul>

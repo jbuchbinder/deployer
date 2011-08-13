@@ -319,7 +319,7 @@ sajax_handle_client_request();
 <?php if (!$_GET['embed']) { ?>
 <h1>Edit Configuration</h1>
 <ul class="buttons">
-	<li><a href="repository_sync.php">Update software from shrek</a></li>
+	<li><a href="repository_sync.php">Update software from repository</a></li>
 	<li><a href="dashboard.php">Dashboard</a></li>
 </ul>
 <?php } ?>

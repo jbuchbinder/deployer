@@ -54,7 +54,7 @@ else {
 }
 
 # Log the action
-insert_into_log ( $dsn, $remote_user , "ALL", "ALL", "ALL", "Initiated repository sync from shrek" );
+insert_into_log ( $dsn, $remote_user , "ALL", "ALL", "ALL", "Initiated repository sync from repository" );
 
 // Force direct sync
 print `rsync -rvazp --delete -e ssh dev@dev.example.com:/dist/ /dist/ 2>&1`;

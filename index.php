@@ -14,7 +14,7 @@ Header('Location: dashboard.php');
 <h1>Deployer</h1>
 
 <ul class="buttons">
-	<li><a href="repository_sync.php">Update software from shrek</a></li>
+	<li><a href="repository_sync.php">Update software from repository</a></li>
 	<li><a href="dashboard.php">Dashboard</a></li>
 	<li><a href="edit_config.php">Edit Domain Config</a></li>
 </ul>
