@@ -126,19 +126,19 @@ $servers = &get_server_array($dsn);
 # If domain is not set we haven't picked an instance yet
 if ( ! ( isset( $_GET['domain']) && isset( $_GET['product'] ) && isset( $_GET['server'] )  ) ) {
 
-	print "Domain <select name=domain><option value=NONE>Please pick one</option>\n";
+	print "Domain <select name=\"domain\"><option value=\"NONE\">Please pick one</option>\n";
 	while ($produc_name = current($instances)) {
-		print "<option value=" . key($instances) . ">".key($instances)."</option>\n";
+		print "<option value=\"" . key($instances) . "\">".key($instances)."</option>\n";
 		next($instances);
 	}
 
-	print "</select><br>\n";
-	print "Product <select name=product><option value=NONE>Please pick one</option>\n";
+	print "</select><br />\n";
+	print "Product <select name=\"product\"><option value=\"NONE\">Please pick one</option>\n";
 	for ( $i = 0 ; $i < sizeof($products) ; $i++ ) {
-		print "<option value=" . $products[$i] . ">".$products[$i]."</option>\n";
+		print "<option value=\"" . $products[$i] . "\">".$products[$i]."</option>\n";
 	}
-	print "</select><br>\n";
-	print "Server <select name=server onchange='this.form.submit();'><option value=NONE>Please pick one</option>\n";
+	print "</select><br />\n";
+	print "Server <select name=\"server\" onchange=\"this.form.submit();\"><option value=\"NONE\">Please pick one</option>\n";
 	for ( $i = 0 ; $i < sizeof($servers) ; $i++ ) {
 		print "<option value=" . $servers[$i] . ">".$servers[$i]."</option>\n";
 	}
@@ -148,9 +148,9 @@ if ( ! ( isset( $_GET['domain']) && isset( $_GET['product'] ) && isset( $_GET['s
 
 } else {
 
-	print "<INPUT TYPE=hidden name=domain VALUE='" . $_GET['domain'] . "'>\n";
-	print "<INPUT TYPE=hidden name=product VALUE='" . $_GET['product'] . "'>\n";
-	print "<INPUT TYPE=hidden name=server VALUE='" . $_GET['server'] . "'>\n";
+	print "<INPUT TYPE=\"hidden\" name=\"domain\" VALUE=\"" . $_GET['domain'] . "\" />\n";
+	print "<INPUT TYPE=\"hidden\" name=\"product\" VALUE=\"" . $_GET['product'] . "\" />\n";
+	print "<INPUT TYPE=\"hidden\" name=\"server\" VALUE=\"" . $_GET['server'] . "\" />\n";
 
 	for ($i = 0; $i < sizeof($instances[$_GET['domain']]) ; $i++ ) {
 		if ( $instances[$_GET['domain']][$i]["server_name"] == $_GET['server'] && 
@@ -165,9 +165,9 @@ if ( ! ( isset( $_GET['domain']) && isset( $_GET['product'] ) && isset( $_GET['s
 		# Define all property files
 		$properties_array = $properties[$_GET['product']];
 
-	print "Configuration File <select name=conf_file onchange='this.form.submit();'><option value=NONE>Pick one</option>\n";
+	print "Configuration File <select name=\"conf_file\" onchange=\"this.form.submit();\"><option value=\"NONE\">Pick one</option>\n";
 	for ( $i = 0 ; $i < sizeof($properties_array) ; $i++ ) {	
-			print "<OPTION VALUE=" . $i . ">" . $properties_array[$i] . "</OPTION>\n";
+			print "<OPTION VALUE=\"" . $i . "\">" . $properties_array[$i] . "</OPTION>\n";
 	}
 	print "</select>";
 	

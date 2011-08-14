@@ -84,8 +84,8 @@ if ( !isset ($_GET['action'] ) ) {
 	<table border=\"1\">
 	<tr><th>Name of new domain:</th><td><input type=\"text\" name=\"domain_name\" /></td></tr>
 	<tr><th>Domain identifier e.g. ba, bb</th><td><input type=\"text\" name=\"domain_identifier\" /></td></tr>
-	<tr><th width=60%>Optional replace string in values e.g. we use usernames as suffixes e.g. Db_joe. If you are creating a domain for Jack put from joe to jack. 
-	</th><td>From <input type=\"text\" name=\"fromstring\" /><br />To <INPUT name=tostring></td></tr>
+	<tr><th width=\"60%\">Optional replace string in values e.g. we use usernames as suffixes e.g. Db_joe. If you are creating a domain for Jack put from joe to jack. 
+	</th><td>From <input type=\"text\" name=\"fromstring\" /><br />To <input name=\"tostring\" /></td></tr>
 	</table>
 	<p><input type=\"submit\" /></form>
 	";
@@ -260,7 +260,7 @@ if ( !isset ($_GET['action'] ) ) {
 		if ( $_GET['domain_name'] != "NONE" && $_GET['domain_name'] != "NONE" && $_GET['domain_name'] != "NONE" ) {
 			print "You are deploying following ";
 	
-			print "<table border=1>
+			print "<table border=\"1\">
 				<tr><th>Domain</th><td>" . $_GET['domain_name'] . "</td></tr>
 				<tr><th>Product</th><td>" . $_GET['product_name'] . "</td></tr>
 				<tr><th>Server</th><td>" . $_GET['server_name'] . "</td></tr>
@@ -275,7 +275,7 @@ if ( !isset ($_GET['action'] ) ) {
 		}
 
 		if ( $_GET['deploy_ip'] != "" && check_valid_ip($_GET['deploy_ip']) == 0 ) {
-			echo "<p><h2><font color=red>You have supplied an invalid IP address. Either leave the fill blank or enter valid ip. Action aborted.</font></h2>";
+			echo "<p><h2><font color=\"red\">You have supplied an invalid IP address. Either leave the fill blank or enter valid ip. Action aborted.</font></h2>";
 			exit(1);
 		}
 
