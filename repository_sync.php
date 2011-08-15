@@ -18,6 +18,7 @@
 
 <ul class="buttons">
 	<li><a href="dashboard.php">Dashboard</a></li>
+	<li><a href="firewall.php">Firewall</a></li>
 	<li><a href="edit_config.php">Edit Domain Config</a></li>
 </ul>
 <?php } ?>

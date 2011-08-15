@@ -126,6 +126,7 @@ sajax_handle_client_request();
 
 <ul id="deployertabs" class="shadetabs">
 	<li><a href="#" rel="dashboard" class="selected">Dashboard</a></li>
+	<li><a href="#" rel="firewall">Firewall</a></li>
 	<li><a href="#" rel="editconfig">Edit Domain Config</a></li>
 	<li><a href="#" rel="admin">Administration</a></li>
 	<li><a href="#" rel="sync">Update Software</a></li>
@@ -346,6 +347,10 @@ load_all_status();
 <?php } ?>
 <?php if ( !isset($_GET['embed']) || $_GET['embed'] != 1) { ?>
 </div>
+
+	<div id="firewall" class="tabcontent" style="display: none;">
+		<iframe src="firewall.php?embed=1" height="100%" width="100%" border="0"></iframe>
+	</div>
 
 	<div id="editconfig" class="tabcontent" style="display: none;">
 		<iframe src="edit_config.php?embed=1" height="100%" width="100%" border="0"></iframe>
