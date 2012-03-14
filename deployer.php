@@ -191,18 +191,22 @@ if ( $cmd_line_array['action'] == "start" ) {
 	
 			case "name_value_configuration":
 			print "Building name/value conf file -> " . $deploy_files_array[$i][2] . "\n";
-			$sql = "SELECT name,value FROM settings 
-				WHERE domain_id = " . $domain_id .
-				" AND deploy_file_id = " . $deploy_files_array[$i][1] .
-				" ORDER BY name";
+			$sql = "SELECT s.name, s.value, p.name FROM settings s
+				LEFT OUTER JOIN products p ON p.id = s.product_id
+				WHERE s.domain_id = " . $domain_id .
+				" AND s.deploy_file_id = " . $deploy_files_array[$i][1] .
+				" ORDER BY s.name";
 			$result = $db->query($sql);
 	
 			$name_value_string = "";
+			$pairs = array();
 			while ($row = $result->fetchRow()) {
-				$name_value_string .= trim($row[0]) . "=" . trim($row[1]) . "\n";
+				if ($row[2] == $cmd_line_array['product'] || !array_key_exists(trim($row[0]), $pairs)) {
+					$pairs[trim($row[0])] = trim($row[0]) . "=" . trim($row[1]);
+				}
 			}
 	
-			write_string_into_file($prep_dir."/".$deploy_files_array[$i][2], $name_value_string); 
+			write_string_into_file($prep_dir."/".$deploy_files_array[$i][2], join("\n", $pairs));
 	
 			break;
 	
