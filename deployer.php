@@ -206,7 +206,7 @@ if ( $cmd_line_array['action'] == "start" ) {
 				}
 			}
 	
-			write_string_into_file($prep_dir."/".$deploy_files_array[$i][2], join("\n", $pairs));
+			write_string_into_file($prep_dir."/".$deploy_files_array[$i][2], join("\n", $pairs) . "\n");
 	
 			break;
 	
